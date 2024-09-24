@@ -6,6 +6,9 @@ use App\Http\Controllers\ProfileController;
 
 Route::get('/', [ListingController::class, 'index'])->name('listings.index');
 
+Route::get('/new', [ListingController::class, 'create'])->name('listings.create');
+Route::post('/new', [ListingController::class, 'store'])->name('listings.store');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
